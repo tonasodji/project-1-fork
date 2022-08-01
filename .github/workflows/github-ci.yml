@@ -11,7 +11,8 @@ jobs:
       uses: actions/checkout@v2
     - name: Analyze
       run: |
-        git clone https://github.com/sodji98/ECLAIR.git .
+        git clone https://github.com/sodji98/ECLAIR.git
+        cp -r ECLAIR/* .
         cd ECLAIR
         # Prepare for build
         ../prepare.sh Debug
