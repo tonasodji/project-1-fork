@@ -11,11 +11,12 @@ jobs:
       uses: actions/checkout@v2
     - name: Analyze
       run: |
-        git clone https://github.com/sodji98/ECLAIR.git
+        git clone https://github.com/sodji98/ECLAIR.git .
+        cd ECLAIR
         # Prepare for build
-        ECLAIR/prepare.sh Debug
+        ../prepare.sh Debug
         # Analyze the project
-        ECLAIR/ECLAIR/analyze.sh
+        ./analyze.sh
         # Make the directory for ECLAIR project database
         mkdir -p ~/github/$GITHUB_REPOSITORY/$GITHUB_RUN_NUMBER && rm -f ~/github/$GITHUB_REPOSITORY/last_$GITHUB_REF_NAME && ln -s ~/github/$GITHUB_REPOSITORY/$GITHUB_RUN_NUMBER ~/github/$GITHUB_REPOSITORY/last_$GITHUB_REF_NAME
         # Copy the project database
